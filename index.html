@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay  - Frontend Developer</title>
+    <meta name="description" content="Sanjay K - Frontend Developer with a passion for creating intuitive and accessible user interfaces.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header with location and time -->
+        <header class="header-info">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-auto">
+                    <div class="location">
+                        <span class="location-icon">📍</span>
+                        <span>Bangalore</span>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="time">
+                        <span class="time-icon">🕐</span>
+                        <span id="current-time"></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <!-- Profile section -->
+                    <div class="profile-section text-center">
+                        <div class="profile-image-container">
+                            <img src="image\sanjay-image.jpg" 
+                                 alt="Mateo Rivas" 
+                                 class="profile-image">
+                        </div>
+                        <h1 class="name">Sanjay K</h1>
+                        <p class="title">Frontend Developer</p>
+                    </div>
+
+                    <!-- About section -->
+                    <section class="about-section">
+                        <h2 class="section-title">ABOUT</h2>
+                        <p class="about-text">
+                            I'm a Forntend developer with a passion for creating intuitive and accessible user interfaces.
+                            With a strong background in design systems and a keen eye for detail, I strive to build
+                        </p>
+                    </section>
+  <!-- Skills section -->
+                    <section class="skills-section">
+                        <h2 class="section-title">SKILLS</h2>
+                        <div class="skills-container">
+                            <span class="skill-tag">Forntend</span>
+                            <span class="skill-tag">Html</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">Js</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Storybook</span>
+                            <span class="skill-tag">Design Systems</span>
+                            <span class="skill-tag">Accessibility</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </section>
+                    <!-- Experience section -->
+                    <section class="experience-section">
+                        <h2 class="section-title">Projects</h2>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company-logo">
+                                    <div class="logo-placeholder"></div>
+                                </div>
+                                <div class="experience-details">
+                                    <h3 class="job-title">Expense Tracker</h3>
+                                    <p class="company-period">frontend projects • 2025-Jan</p>
+                                    <p class="job-description">
+                                        Developed a comprehensive expense tracking application using modern frontend technologies.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company-logo">
+                                    <div class="logo-placeholder"></div>
+                                </div>
+                                <div class="experience-details">
+                                    <h3 class="job-title">Google search clone</h3>
+                                    <p class="company-period">Frontend projects • 2025-March</p>
+                                    <p class="job-description">
+                                        Created a clone of the Google search interface, focusing on responsive design and user experience.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contact section -->
+                    <section class="contact-section">
+                        <h2 class="section-title">CONTACT</h2>
+                        <div class="contact-links">
+                            <a href="mailto:sanjugowda1239@gmail.com" class="contact-link">
+                                ✉️ sanjugowda1239@gmail.com
+                            </a>
+                            <a href="https://linkedin.com/in/sanjugowda" target="_blank" class="contact-link">
+                                🔗 LinkedIn
+                            </a>
+                            <a href="https://github.com/mateorivas" target="_blank" class="contact-link">
+                                💻 GitHub
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p class="footer-text">© 2025 Sanjay. All rights reserved.</p>
+                    </footer>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            // Format time as HH:MM:SS
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            // Get local timezone offset in hours and minutes
+            const offset = -now.getTimezoneOffset();
+            const sign = offset >= 0 ? "+" : "-";
+            const hours = String(Math.floor(Math.abs(offset) / 60)).padStart(2, '0');
+            const minutes = String(Math.abs(offset) % 60).padStart(2, '0');
+            const timezone = `GMT${sign}${hours}:${minutes}`;
+            document.getElementById('current-time').textContent = `${timeString} ${timezone}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
